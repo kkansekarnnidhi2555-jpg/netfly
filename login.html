@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Login Page</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <nav>
+        <a href="#">
+            <img src="https://codingstella.com/wp-content/uploads/2024/01/580b57fcd9996e24bc43c529.png" alt="Netflix Logo">
+        </a>
+    </nav>
+   
+    <div class="form-wrapper">
+        <h2>Sign In</h2>
+        <form action="#">
+            <div class="form-control">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email or phone number</label>
+            </div>
+
+            <div class="form-control">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+
+            <button type="submit">Sign In</button>
+
+            <div class="form-help">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <a href="#">Need Help?</a>
+            </div>
+        </form>
+
+        <p>New to Netflix? <a href="#">Sign Up Now</a></p>
+        <small>
+            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+            <a href="#">Learn More.</a>
+        </small>
+    </div>
+    <script>
+       document.querySelector("form").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const sound = new Audio("netflix/Netflix-Intro-Sound-Effect.mp3");
+    
+    // Play sound as part of user gesture
+    sound.play().then(() => {
+        console.log("Sound started");
+
+        // After sound ends, show intro animation
+        sound.onended = () => {
+            window.location.href = "index.html";
+        };
+    }).catch(err => {
+        console.log("Play failed:", err);
+        // fallback redirect
+        window.location.href = "index.html";
+    });
+});
+</script>
+
+</body>s
+</html>
